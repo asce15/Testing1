@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+ *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+body {
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+header a {
+  text-decoration: none;
+}
+
+header {
+  padding: 0 20px;
+  background-color: #A4040A;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* ensures it stays on top */
+}
+
+#brand {
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#brand a {
+  color: white;
+}
+
+#brand img.logo {
+    height: 70px; 
+    width: auto;
+}
+
+ul {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+ul a {
+  color: white;
+}
+
+ul li {
+  padding: 15px;
+  margin-left: 10px;
+}
+
+ul li:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+ul li:hover{
+    background-color: #800000;
+}
+
+#hamburger-icon {
+  margin: auto 0;
+  display: none;
+  cursor: pointer;
+  
+}
+
+#hamburger-icon div {
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.open .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.open .bar2 {
+  opacity: 0;
+}
+
+.open .bar3 {
+  -webkit-transform: rotate(45deg) translate(-6px, -8px);
+  transform: rotate(45deg) translate(-6px, -8px);
+}
+
+.open .mobile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* semi-transparent */
+  padding: 20px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* subtle shadow */
+  z-index: 1000;
+  height: auto; 
+}
+
+.mobile-menu li {
+  margin-bottom: 10px;
+}
+
+.mobile-menu li:last-child {
+  margin-bottom: 0;
+}
+
+.mobile-menu li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/*background*/
+
+  .background-image {
+  position: relative;
+  background-image: url("bg1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  margin-top: 40px;
+  z-index: 1;
+}
+
+.background-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3); 
+  z-index: -1;
+}
+
+
+    .form-container {
+    background-color: rgba(255, 255, 255, 0.9); /* 0.9 = 90% opaque */
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #A4040A;
+}
+    .form-container h2 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+
+   button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  background-color: #A4040A;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold; 
+}
+
+button:hover {
+  background-color: #A4040A;
+}
+
+#submit-appointment:hover {
+  background-color: #FFC107;
+  color: #A4040A;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold; 
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-width {
+  grid-column: span 2; /* spans full row on 2-column layout */
+}
+
+@media (max-width: 600px) {
+  .full-width {
+    grid-column: span 1; /* stacks everything on small screens */
+  }
+}
+
+.row-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-width {
+  width: 100%;
+}
+#purpose {
+  min-height: 300px; 
+  font-size: 1.1rem; 
+  resize: vertical; 
+  padding: 10px;
+  height: 1.5;
+  width: 500px  ;
+} 
+
+/* Circle checkbox style */
+.circle-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  border: 2px solid #A4040A;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; /* makes it a circle */
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.circle-checkbox:checked::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: #A4040A;
+  border-radius: 50%;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  font-family: "Poppins", sans-serif;
+}
+
+.close-button {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
+ 
+
+ 

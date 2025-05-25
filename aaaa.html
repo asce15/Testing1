@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="aaaa.css">
+  <title>Brgy Market Health Info Hub</title>
+  <style>
+  </style>
+</head>
+
+<body>
+   
+    <header>
+        <div id="brand"><img src="logo.png" alt="" class="logo"><a href="#top">Barangay Market Area Health Information Hub</a></div>
+      <nav>
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#">Available Medicine</a></li>
+          <li><a href="#">Appointment Booking</a></li>
+          <li><a href="#">Appointment List</a></li>
+          <li><a href="#" >Login</a></li>
+        </ul>
+      </nav>
+      <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <ul class="mobile-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Available Medicine</a></li>
+            <li><a href="#">Appointment Booking</a></li>
+            <li><a href="#">Appointment List</a></li>
+          <li><a href="#" >Log Out</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="bg-image">
+  <div class="container">
+    <div class="main-white-box">
+      <!-- All your sections go here -->
+  <section>
+
+  <div class="category-title"><h2>🧊 Cold & Fever</h2></div>
+  <div class="scroll-wrapper">
+    
+    <button class="scroll-btn left" onclick="scrollLeft()">&#9664;</button>
+
+    <div class="card-container scrollable" id="cardScroll">
+      <div class="card" data-name="Biogesic" data-desc="Paracetamol used for fever and mild pain relief.">
+        <img src="dog.jpg" alt="Biogesic Image" />
+        <div class="item-name">Biogesic</div>
+        <div class="quantity">Quantity: 10 pcs</div>
+      </div>
+      <div class="card" data-name="Bioflu" data-desc="Relieves flu symptoms like fever, cold, and body aches.">
+        <img src="dog.jpg" alt="Bioflu Image" />
+        <div class="item-name">Bioflu</div>
+        <div class="quantity">Quantity: 5 pcs</div>
+      </div>
+      <div class="card" data-name="Item" data-desc="No data available.">
+        <img src="dog.jpg" alt="Item Image" />
+        <div class="item-name">[Item]</div>
+      </div>
+      <div class="card" data-name="Tempra" data-desc="Paracetamol alternative for fever.">
+        <img src="dog.jpg" alt="Tempra" />
+        <div class="item-name">Tempra</div>
+        <div class="quantity">Quantity: 3 pcs</div>
+      </div>
+      <div class="card" data-name="Neozep" data-desc="Used for cold and nasal congestion.">
+        <img src="dog.jpg" alt="Neozep" />
+        <div class="item-name">Neozep</div>
+        <div class="quantity">Quantity: 8 pcs</div>
+      </div>
+      <div class="card" data-name="Decolgen" data-desc="For colds, fever, and body pain.">
+        <img src="dog.jpg" alt="Decolgen" />
+        <div class="item-name">Decolgen</div>
+        <div class="quantity">Quantity: 4 pcs</div>
+      </div>
+      <div class="card" data-name="Alaxan FR" data-desc="Pain reliever for body aches.">
+        <img src="dog.jpg" alt="Alaxan FR" />
+        <div class="item-name">Alaxan FR</div>
+        <div class="quantity">Quantity: 6 pcs</div>
+      </div>
+      <div class="card" data-name="Medicol Advance" data-desc="Relieves headache and fever.">
+        <img src="dog.jpg" alt="Medicol" />
+        <div class="item-name">Medicol Advance</div>
+        <div class="quantity">Quantity: 7 pcs</div>
+      </div>
+      <div class="card" data-name="Dolfenal" data-desc="For moderate to severe pain relief.">
+        <img src="dog.jpg" alt="Dolfenal" />
+        <div class="item-name">Dolfenal</div>
+        <div class="quantity">Quantity: 2 pcs</div>
+      </div>
+    </div>
+
+    <button class="scroll-btn right" onclick="scrollRight()">&#9654;</button>
+  </div>
+</section>
+    <!-- Vitamins -->
+    <section>
+      <div class="category-title"><h2>💊 Vitamins</h2></div>
+      <div class="card-container">
+        <div class="card" data-name="Vitamin C" data-desc="Boosts immunity and helps fight colds.">
+          <img src="dog.jpg" alt="Vitamin C" />
+          <div class="item-name">Vitamin C</div>
+          <div class="quantity">Quantity: --</div>
+        </div>
+        <div class="card" data-name="Multivitamins" data-desc="Provides essential vitamins and minerals.">
+          <img src="dog.jpg" alt="Multivitamins" />
+          <div class="item-name">Multivitamins</div>
+          <div class="quantity">Quantity: --</div>
+        </div>
+        <div class="card" data-name="Iron Supplement" data-desc="Helps treat and prevent iron deficiency.">
+          <img src="dog.jpg" alt="Iron Supplement" />
+          <div class="item-name">Iron Supplement</div>
+          <div class="quantity">Quantity: --</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diarrhea -->
+    <section>
+      <div class="category-title"><h2>💧 Diarrhea</h2></div>
+      <div class="card-container">
+        <div class="card" data-name="Loperamide" data-desc="Used to treat acute diarrhea.">
+          <img src="dog.jpg" alt="Loperamide" />
+          <div class="item-name">Loperamide</div>
+          <div class="quantity">Quantity: --</div>
+        </div>
+        <div class="card" data-name="ORS" data-desc="Oral Rehydration Salts to prevent dehydration.">
+          <img src="dog.jpg" alt="ORS" />
+          <div class="item-name">ORS</div>
+          <div class="quantity">Quantity: --</div>
+        </div>
+        <div class="card" data-name="Activated Charcoal" data-desc="Absorbs toxins in the digestive system.">
+          <img src="dog.jpg" alt="Charcoal" />
+          <div class="item-name">Activated Charcoal</div>
+          <div class="quantity">Quantity: --</div>
+        </div>
+      </div>
+    </section>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-desc"></p>
+    </div>
+  </div>
+
+  <script>
+
+    function toggleMobileMenu(menu) {
+    menu.classList.toggle('open');
+    }   
+
+    const cards = document.querySelectorAll(".card");
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalDesc = document.getElementById("modal-desc");
+    const closeBtn = document.querySelector(".close");
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        modalTitle.textContent = card.dataset.name;
+        modalDesc.textContent = card.dataset.desc;
+        modal.style.display = "block";
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target == modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    function scrollLeft() {
+    const container = document.getElementById("cardScroll");
+    container.scrollBy({ left: -200, behavior: 'smooth' });
+  }
+
+  function scrollRight() {
+    const container = document.getElementById("cardScroll");
+    container.scrollBy({ left: 200, behavior: 'smooth' });
+  }
+
+  </script>
+</body>
+</html>

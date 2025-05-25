@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Appointment Form</title>
+    <link rel="stylesheet" href="AppointmentForm.css">
+</head>
+<header>
+      <div id="brand"><img src="logo.png" alt="" class="logo"><a href="#top">Barangay Market Area Health Information Hub</a></div>
+      <nav>
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#">Available Medicine</a></li>
+          <li><a href="#">Appointment Booking</a></li>
+          <li><a href="#">Appointment List</a></li>
+          <li><a href="#" >Log Out</a></li>
+        </ul>
+      </nav>
+      <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <ul class="mobile-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Available Medicine</a></li>
+            <li><a href="#">Appointment Booking</a></li>
+            <li><a href="#">Appointment List</a></li>
+          <li><a href="#" >Logout</a></li>
+        </ul>
+      </div>
+    </header>
+<body>
+  <section class="background-image">
+ 
+  <div class="form-container">
+  <h2>Appointment Form</h2>
+  <form>
+        <div class="row-group">
+          <div class="form-group">
+            <label for="Date">Date:</label>
+            <input type="date" id="Date" name="Date" required>
+          </div>
+          <div class="form-group">
+            <label for="purpose">Purpose:</label>
+            <textarea id="purpose" name="purpose" rows="3" required></textarea>
+          </div>
+        </div>
+
+        <div class="checkbox-container">
+          <input type="checkbox" id="agree" name="agree" class="circle-checkbox">
+          <label for="agree">
+            <span id="terms-link" style="color:blue; text-decoration:underline; cursor:pointer;"><u>terms and conditions</u></span>
+          </label>
+        </div>
+
+       
+      
+      <!-- Terms and Conditions Modal -->
+      <div id="terms-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <h3>Data Privacy Act of 2012</h3>
+          <p>
+            Your personal data will be collected and processed in accordance with Republic Act No. 10173, also known as the Data Privacy Act of 2012. This ensures your information is protected, kept confidential, and used only for legitimate purposes such as healthcare appointments, consultations, and barangay health services. You have the right to access, correct, and withdraw your data at any time.
+          </p>
+        </div>
+      </div>
+
+    <script>
+    const termsLink = document.getElementById("terms-link");
+    const modal = document.getElementById("terms-modal");
+    const closeBtn = document.querySelector(".close-button");
+
+    termsLink.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    closeBtn.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+    <button type="submit" id="submit-appointment">Submit</button>
+  </form>
+</div>
+
+</section>
+</body>
+</html>

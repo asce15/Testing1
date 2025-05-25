@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+  margin-top: 60px; /* to prevent overlap with fixed header */
+}
+
+header a {
+  text-decoration: none;
+}
+
+header {
+  padding: 0 20px;
+  background-color: #A4040A;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+#brand {
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#brand a {
+  color: white;
+}
+
+#brand img.logo {
+  height: 70px;
+  width: auto;
+}
+
+ul {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+ul a {
+  color: white;
+}
+
+ul li {
+  padding: 15px;
+  margin-left: 10px;
+}
+
+ul li:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+  background-color: #800000;
+}
+
+/* Fix: Make hamburger icon stay on top */
+#hamburger-icon {
+  margin: auto 0;
+  display: none;
+  cursor: pointer;
+  position: relative;      /* Added */
+  z-index: 1100;           /* Added: higher than mobile-menu */
+}
+
+#hamburger-icon div {
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.open .bar1 {
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.open .bar2 {
+  opacity: 0;
+}
+
+.open .bar3 {
+  transform: rotate(45deg) translate(-6px, -8px);
+}
+
+.open .mobile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  height: auto;
+}
+
+.mobile-menu li {
+  margin-bottom: 10px;
+}
+
+.mobile-menu li:last-child {
+  margin-bottom: 0;
+}
+
+.mobile-menu li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Background section */
+.background-image {
+  position: relative;
+  background-image: url("bg1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1;
+}
+
+.background-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+.list-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  width: 100%;
+  max-width: 1000px;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow:
+    0 0 15px rgba(164, 4, 10, 0.6), /* soft outer glow */
+    0 0 30px rgba(164, 4, 10, 0.4); /* extended glow effect */
+  color: #333;
+  font-family: "Poppins", sans-serif;
+  margin: 0 auto 40px auto;
+}
+
+.list-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 32px;
+  color: #A4040A;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  overflow-x: auto;
+  border-radius: 12px;
+  overflow: hidden; /* ensures rounded corners take effect */
+}
+
+thead th {
+  background-color: #A4040A;
+  color: white;
+  padding: 14px 12px;
+  text-align: left;
+  font-size: 18px;
+}
+
+tbody td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+}
+
+tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Responsive Table */
+@media screen and (max-width: 768px) {
+  .list-container {
+    padding: 20px 15px;
+    width: 90%;
+    max-width: none;
+  }
+
+  thead {
+    display: none;
+  }
+
+  table, tbody, tr, td {
+    display: block;
+    width: 100%;
+  }
+
+  tr {
+    margin-bottom: 15px;
+    background: #fff;
+    border-radius: 12px; /* rounded corners on mobile */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 15px 10px;
+  }
+
+  td {
+    padding: 10px 10px 10px 40%;
+    text-align: left;
+    position: relative;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    top: 12px;
+    font-weight: 700;
+    color: #555;
+  }
+}
