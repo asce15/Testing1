@@ -1,157 +1,448 @@
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
-    body, html {
-      height: 100%;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      background: url('bg1.jpg') no-repeat center center/cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+body,
+html {
+  height: 100%;
+}
 
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6); /* black transparent overlay */
-      z-index: 0;
-    }
+body {
+  background-image: url("bg1.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
 
-    .login-box {
-      position: relative;
-      z-index: 1;
-      background: white;
-      padding: 40px;
-      border-radius: 10px;
-      width: 350px;
-      box-shadow: 0 0 20px rgba(128, 0, 0, 1),
-                  0 0 50px rgba(128, 0, 0, 0.7),
-                  0 0 100px rgba(128, 0, 0, 0.5); /* glow effect */
-      text-align: center;
-    }
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 0, 0, 0.8);
+  z-index: 0;
+}
 
-    .login-box h2 {
-      margin-bottom: 20px;
-      color: #333;
-    }
+.logo-container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
 
-    .login-box input[type="text"],
-    .login-box input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
+.logo-container .logo {
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px auto;
+}
 
-    .login-box .terms {
-      display: flex;
-      align-items: center;
-      justify-content: start;
-      font-size: 14px;
-      margin-top: 30px;
-      margin-bottom: 10px;
-    }
+.logo-text {
+  font-size: 20px;
+}
 
-     .login-box .terms input {
-      margin-right: 8px;
-      
-    }
-    
-    .login-box .terms a {
-    color: #A4040A;
-    text-decoration: none;
-    }
+.login-box {
+  position: relative;
+  z-index: 1;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 0, 0, 0.5),
+    0 0 50px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
 
-    .login-box .terms a:hover {
-    text-decoration: underline;
-    }
-    .login-box button {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      background-color: #800000;
-      color: #000;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
+.login-box.login-mode {
+  width: 355px;
+}
 
-    .login-box button:hover {
-      background-color: #FEFF91;
-    }
+.login-box.signup-mode {
+  width: 600px;
+}
 
-    .signup-link {
-      margin-top: 15px;
-      font-size: 14px;
-    }
+.login-box h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
 
-    .signup-link a {
-      color: #A4040A;
-      text-decoration: none;
-      font-weight: bold;
-    }
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
-    .signup-link a:hover {
-      text-decoration: underline;
-    }
+.login-box .terms {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* space between checkbox and label */
+  font-size: 14px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  flex-wrap: nowrap; /* prevent wrapping */
+  white-space: nowrap; /* prevent text from wrapping */
+}
 
-    .modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.6);
-    }
+.login-box .terms label {
+  margin: 0; /* remove any margin */
+  white-space: nowrap; /* prevent label text from wrapping */
+}
 
-    .modal-content {
-    background-color: #fff;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 500px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    }
+.login-box .terms input {
+  margin-right: 8px;
+}
 
-    .modal-text h3 {
-    margin-top: 15px;
-    color: #A4040A;
-    font-size: 18px;
-    }
+.login-box .terms a {
+  color: #a4040a;
+  text-decoration: none;
+}
 
-    .modal-text p {
-    margin: 8px 0;
-    line-height: 1.6;
-    color: #444;
-    }
+.login-box .terms a:hover {
+  text-decoration: underline;
+}
 
-    .modal-text {
-    font-size: 15px;
-    }
+.login-box #login-submit {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #800000;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
 
-    .close-btn {
-    color: #aaa;
-    float: right;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    }
+.login-box #login-submit:hover {
+  background-color: #feff91;
+  color: rgb(0, 0, 0);
+  border: 2px solid #800000;
+}
 
-    .close-btn:hover {
-    color: black;
-    }
+.signup-link {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.signup-link a {
+  color: #a4040a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+.signup-box {
+  position: relative;
+  background: white;
+  width: 600px;
+  max-width: 90vw;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 0, 0, 0.5),
+    0 0 50px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Step Circles */
+.stepper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 40px;
+  align-items: center;
+}
+
+.stepper::before,
+.stepper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  width: 30%;
+  height: 4px;
+  border-radius: 2px;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.stepper::before {
+  background: #ccc; /* background bar */
+}
+
+.stepper::after {
+  background: #800000; /* progress bar */
+  width: calc(var(--progress) * 30%);
+  transition: width 0.4s ease;
+}
+
+.circle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ccc;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+  user-select: none;
+  transition: background-color 0.3s;
+  z-index: 1;
+}
+
+.circle.active {
+  background: #800000;
+  box-shadow: 0 0 10px #800000, 0 0 20px #800000;
+}
+
+/* all connectors default gray */
+.stepper .circle:not(:last-child)::after {
+  background: #ccc;
+}
+
+/* step-1: no connector colored */
+.stepper.step-1 .circle:not(:last-child)::after {
+  background: #ccc;
+}
+
+/* step-2: only connector after circle 1 is colored */
+.stepper.step-2 .circle:nth-child(1)::after {
+  background: #800000;
+}
+
+/* step-3: connectors after circle 1 & 2 are colored */
+.stepper.step-3 .circle:nth-child(1)::after,
+.stepper.step-3 .circle:nth-child(2)::after {
+  background: #800000;
+}
+
+/* Form styles */
+form {
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+label.required::after {
+  content: " *";
+  color: red;
+  margin-left: 2px;
+}
+
+/* Two-column for step 1 and 2 inputs */
+.two-column {
+  display: flex;
+  gap: 20px;
+}
+
+.two-column > div {
+  flex: 1;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 20px;
+}
+.right-button {
+  justify-content: center;
+}
+
+button {
+  padding: 10px 25px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #800000;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  color: #666;
+  border: none;
+}
+
+#submit {
+  background-color: #28a745;
+}
+
+/* Confirmation step */
+.confirmation {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.5;
+}
+
+.confirmation.card {
+  background-color: #f9f9f9;
+  padding: 25px;
+  border-radius: 8px;
+  border: 1px solid #000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #800000;
+}
+
+.confirmation.card h3 {
+  margin-bottom: 15px;
+  color: #800000;
+  font-size: 1.2rem;
+}
+
+.confirmation.card p {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.signup-box::-webkit-scrollbar {
+  width: 12px;
+}
+
+.signup-box::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 6px;
+}
+
+.signup-box::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background: linear-gradient(180deg, #800000, #ff4d4d);
+  border: 2px solid #ddd;
+}
+
+.signup-box::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #b30000, #ff6666);
+}
+
+@media (max-width: 600px) {
+  .logo-text {
+    font-size: 16px;
+  }
+
+  .two-column {
+    flex-direction: column;
+  }
+  .button-group {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .signup-box {
+    max-height: 90vh;
+    overflow-y: auto;
+    margin: 20px auto;
+  }
+
+  .stepper::before,
+  .stepper::after {
+    left: 30%;
+    width: 40%;
+  }
+
+  .stepper::after {
+    width: calc(var(--progress) * 40%);
+  }
+}
+
+/* Modal styles */
+.modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 9999; /* very high to overlay */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7); /* semi-transparent background */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto; /* center vertically and horizontally */
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 0 15px rgba(128, 0, 0, 0.8);
+  position: relative;
+}
+
+.close-btn {
+  color: #800000;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+
+.close-btn:hover {
+  color: #feff91;
+}
+
+.success-check {
+  width: 40%;
+  height: auto;
+  margin: 80px auto;
+  display: block;
+  margin-bottom: 20px;
+}
