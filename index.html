@@ -1,88 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>Document</title>
-</head>
-<body>
-     <div class="overlay"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="website icon" href="BMA.png" />
+    <title>Barangay Market Area Health Information Hub</title>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="logo-container" id="branding">
+      <img src="BMA.png" alt="Barangay Market Logo" class="logo" />
+      <p class="logo-text">Barangay Market Area Health Information Hub</p>
+    </div>
 
-  <div class="login-box">
-    <h2>Login</h2>
-    <form id="login-form">
-      <input type="text" id="username" placeholder="Username" required>
-      <input type="password" id="password" placeholder="Password" required>
-       <div class="terms">
-        <input type="checkbox" id="agree" required>
-        <label for="agree">I agree to the <a href="#" id="termsLink">Terms and Conditions</a></label>
+    <div class="login-box login-mode">
+      <!-- LOGIN FORM -->
+      <form id="login-form">
+        <h2>Login</h2>
+        <input type="text" placeholder="Username" required />
+        <input type="password" placeholder="Password" required />
+        <div class="terms">
+          <input type="checkbox" id="termsCheckbox" />
+          <label for="termsCheckbox"
+            >I agree to the
+            <a href="#" id="openTerms">Terms and Conditions</a></label
+          >
+        </div>
+        <button type="submit" id="login-submit">Login</button>
+        <div class="signup-link">
+          Don't have an account? <a href="#" id="link-to-signup">Sign up</a>
+        </div>
+      </form>
+    </div>
+
+    <div class="signup-box" style="display: none">
+      <h2>Sign Up</h2>
+      <div class="stepper">
+        <div class="circle active" id="step-1-circle">1</div>
+        <div class="circle" id="step-2-circle">2</div>
+        <div class="circle" id="step-3-circle">3</div>
       </div>
-      <button type="submit">Login</button>
-       <div class="signup-link">
-      Don't have an account? <a href="#">Sign up</a>
+
+      <form id="step-1-form">
+        <div class="two-column">
+          <div>
+            <div class="form-group">
+              <label for="name" class="required">Full Name</label>
+              <input type="text" id="name" placeholder="Full Name" required />
+            </div>
+            <div class="form-group">
+              <label for="age" class="required">Age</label>
+              <input type="number" id="age" placeholder="Age" required />
+            </div>
+            <div class="form-group">
+              <label for="birthday" class="required">Birthday</label>
+              <input type="date" id="birthday" required />
+            </div>
+          </div>
+          <div>
+            <div class="form-group">
+              <label for="address" class="required">Address</label>
+              <input type="text" id="address" placeholder="Address" required />
+            </div>
+            <div class="form-group" class="required">
+              <label for="contact" class="required">Contact Number</label>
+              <input
+                type="tel"
+                id="contact"
+                placeholder="Contact Number"
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <div class="button-group right-button">
+          <button type="button" id="next-1">Next</button>
+        </div>
+      </form>
+
+      <form id="step-2-form" style="display: none">
+        <div class="two-column">
+          <div>
+            <div class="form-group">
+              <label for="username" class="required">Username</label>
+              <input
+                type="text"
+                id="username"
+                placeholder="Username"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="Email Address" />
+            </div>
+          </div>
+          <div>
+            <div class="form-group">
+              <label for="password" class="required">Password</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="confirm-password" class="required"
+                >Confirm Password</label
+              >
+              <input
+                type="password"
+                id="confirm-password"
+                placeholder="Confirm Password"
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <div class="button-group">
+          <button type="button" id="back-2">Back</button>
+          <button type="button" id="next-2">Next</button>
+        </div>
+      </form>
+
+      <div id="step-3" style="display: none">
+        <div class="confirmation card">
+          <h3>Review your information</h3>
+          <p><strong>Full Name:</strong> <span id="confirm-name"></span></p>
+          <p><strong>Age:</strong> <span id="confirm-age"></span></p>
+          <p><strong>Birthday:</strong> <span id="confirm-birthday"></span></p>
+          <p><strong>Address:</strong> <span id="confirm-address"></span></p>
+          <p>
+            <strong>Contact Number:</strong> <span id="confirm-contact"></span>
+          </p>
+          <p><strong>Email:</strong> <span id="confirm-email"></span></p>
+          <p><strong>Username:</strong> <span id="confirm-username"></span></p>
+        </div>
+        <div class="button-group" style="margin-top: 25px">
+          <button type="button" id="back-3">Back</button>
+          <button type="button" id="submit">Submit</button>
+        </div>
+      </div>
+
+      <div class="signup-link" style="margin-top: 20px">
+        Already have an account? <a href="#" id="link-to-login">Login</a>
+      </div>
     </div>
-    </form>
-  </div>
-  <div id="termsModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    <div class="modal-text">
-      <h3>1. Introduction</h3>
-      <p>By accessing this site and using our services, you agree to be bound by the following terms and conditions.</p>
 
-      <h3>2. User Responsibilities</h3>
-      <p>You are responsible for maintaining the confidentiality of your account and password and for restricting access to your device.</p>
+    <div id="termsModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" id="closeTerms">&times;</span>
+        <div class="modal-text">
+          <h3>1. Introduction</h3>
+          <p>
+            By accessing this site and using our services, you agree to be bound
+            by the following terms and conditions.
+          </p>
 
-      <h3>3. Privacy</h3>
-      <p>We value your privacy. Any personal information submitted will be handled according to our privacy policy.</p>
+          <h3>2. User Responsibilities</h3>
+          <p>
+            You are responsible for maintaining the confidentiality of your
+            account and password and for restricting access to your device.
+          </p>
 
-      <h3>4. Limitations</h3>
-      <p>In no event shall the site or its suppliers be liable for any damages arising out of the use or inability to use the materials on this site.</p>
+          <h3>3. Privacy</h3>
+          <p>
+            We value your privacy. Any personal information submitted will be
+            handled according to our privacy policy.
+          </p>
 
-      <h3>5. Modifications</h3>
-      <p>We may revise these terms at any time. By using this site, you agree to be bound by the current version of these terms.</p>
+          <h3>4. Limitations</h3>
+          <p>
+            In no event shall the site or its suppliers be liable for any
+            damages arising out of the use or inability to use the materials on
+            this site.
+          </p>
 
-      <p style="margin-top: 20px;"><strong>By continuing, you acknowledge that you have read and agree to these terms.</strong></p>
+          <h3>5. Modifications</h3>
+          <p>
+            We may revise these terms at any time. By using this site, you agree
+            to be bound by the current version of these terms.
+          </p>
+
+          <p style="margin-top: 20px">
+            <strong
+              >By continuing, you acknowledge that you have read and agree to
+              these terms.</strong
+            >
+          </p>
+        </div>
+      </div>
     </div>
-   </div>
-   </div>
-<script>
-  const modal = document.getElementById("termsModal");
-  const link = document.getElementById("termsLink");
-  const closeBtn = document.querySelector(".close-btn");
+    <div id="signupSuccessModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" id="closeSuccess">&times;</span>
+        <div class="modal-text">
+          <img src="check.png" alt="Success Check" class="success-check" />
+          <h3 style="text-align: center">Signup Successful!</h3>
+          <p style="text-align: center">
+            Your account has been created. You can now log in.
+          </p>
+        </div>
+      </div>
+    </div>
 
-  link.addEventListener("click", function(e) {
-    e.preventDefault();
-    modal.style.display = "block";
-  });
+    <script>
+      const termsModal = document.getElementById("termsModal");
+      const openTermsBtn = document.getElementById("openTerms");
+      const closeTermsBtn = document.getElementById("closeTerms");
 
-  closeBtn.addEventListener("click", function() {
-    modal.style.display = "none";
-  });
+      // Open modal when clicking terms link
+      openTermsBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        termsModal.style.display = "block";
+      });
 
-  window.addEventListener("click", function(e) {
-    if (e.target === modal) {
-      modal.style.display = "none";
-    }
-  });
+      // Close modal when clicking close button
+      closeTermsBtn.addEventListener("click", function () {
+        termsModal.style.display = "none";
+      });
 
-    document.getElementById("login-form").addEventListener("submit", function(e) {
-    e.preventDefault(); 
+      // Close modal if clicking outside modal-content
+      window.addEventListener("click", function (event) {
+        if (event.target === termsModal) {
+          termsModal.style.display = "none";
+        }
+      });
 
- 
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
-    const agreed = document.getElementById("agree").checked;
+      // Disable login button unless terms checked
+      const loginSubmit = document.getElementById("login-submit");
+      const termsCheckbox = document.getElementById("termsCheckbox");
 
-    
-    if (username && password && agreed) {
-    
-      window.location.href = "health.html";
-    } else {
-      alert("Please complete all fields and agree to the terms.");
-    }
-  });
-</script>
-</body>
+      termsCheckbox.addEventListener("change", function () {
+        loginSubmit.disabled = !this.checked;
+      });
+
+      // Initially disable login button
+      loginSubmit.disabled = true;
+      // Elements
+      const loginBox = document.querySelector(".login-box.login-mode");
+      const signupContainer = document.querySelector(".signup-box");
+      const loginForm = document.getElementById("login-form");
+      const step1Form = document.getElementById("step-1-form");
+      const step2Form = document.getElementById("step-2-form");
+      const step3Div = document.getElementById("step-3");
+
+      const step1Circle = document.getElementById("step-1-circle");
+      const step2Circle = document.getElementById("step-2-circle");
+      const step3Circle = document.getElementById("step-3-circle");
+
+      const next1Btn = document.getElementById("next-1");
+      const back2Btn = document.getElementById("back-2");
+      const next2Btn = document.getElementById("next-2");
+      const back3Btn = document.getElementById("back-3");
+      const submitBtn = document.getElementById("submit");
+
+      const signupLink = document.getElementById("link-to-signup");
+      const backToLoginLink = document.getElementById("link-to-login");
+
+      // Switch to signup view
+      function switchToSignup(event) {
+        event.preventDefault();
+        loginBox.style.display = "none";
+        signupContainer.style.display = "block";
+        document.getElementById("branding").style.display = "none";
+        showStep(1);
+      }
+
+      // Switch to login view
+      function switchToLogin(event) {
+        if (event) event.preventDefault();
+        signupContainer.style.display = "none";
+        document.getElementById("branding").style.display = "block";
+        loginBox.style.display = "block";
+      }
+
+      signupLink.addEventListener("click", switchToSignup);
+      backToLoginLink.addEventListener("click", switchToLogin);
+
+      // Update circles active state
+      function setActiveStep(step) {
+        step1Circle.classList.remove("active");
+        step2Circle.classList.remove("active");
+        step3Circle.classList.remove("active");
+
+        if (step === 1) step1Circle.classList.add("active");
+        else if (step === 2) step2Circle.classList.add("active");
+        else if (step === 3) step3Circle.classList.add("active");
+      }
+
+      const stepperEl = document.querySelector(".stepper");
+      const totalSteps = 3;
+
+      // Show only relevant step form
+      function showStep(step) {
+        step1Form.style.display = step === 1 ? "block" : "none";
+        step2Form.style.display = step === 2 ? "block" : "none";
+        step3Div.style.display = step === 3 ? "block" : "none";
+
+        // 2) light up circles up to current step
+        [step1Circle, step2Circle, step3Circle].forEach((c, i) => {
+          c.classList.toggle("active", i < step);
+        });
+
+        // 3) compute fill percentage (0%, 50%, 100%)
+        let fraction;
+
+        // example custom mapping:
+        // step 1 → 0%
+        // step 2 → 33%
+        // step 3 → 100%
+        if (step === 1) fraction = 0;
+        else if (step === 2) fraction = 0.5;
+        else if (step === 3) fraction = 1;
+
+        stepperEl.style.setProperty("--progress", fraction);
+      }
+
+      // Validate Step 1 inputs
+      function validateStep1() {
+        const name = document.getElementById("name").value.trim();
+        const age = document.getElementById("age").value.trim();
+        const birthday = document.getElementById("birthday").value.trim();
+        const address = document.getElementById("address").value.trim();
+        const contact = document.getElementById("contact").value.trim();
+        return name && age && birthday && address && contact;
+      }
+
+      // Validate Step 2 inputs
+      function validateStep2() {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value;
+        const confirmPassword =
+          document.getElementById("confirm-password").value;
+        if (!username || !password || !confirmPassword) return false;
+        if (password !== confirmPassword) {
+          alert("Passwords do not match");
+          return false;
+        }
+        return true;
+      }
+
+      // Fill confirmation step
+      function fillConfirmation() {
+        document.getElementById("confirm-name").textContent =
+          document.getElementById("name").value;
+        document.getElementById("confirm-age").textContent =
+          document.getElementById("age").value;
+        document.getElementById("confirm-birthday").textContent =
+          document.getElementById("birthday").value;
+        document.getElementById("confirm-address").textContent =
+          document.getElementById("address").value;
+        document.getElementById("confirm-contact").textContent =
+          document.getElementById("contact").value;
+        const email = document.getElementById("email").value.trim();
+        document.getElementById("confirm-email").innerHTML = email
+          ? email
+          : "<i>(None)</i>";
+        document.getElementById("confirm-username").textContent =
+          document.getElementById("username").value;
+      }
+
+      // Navigation button event listeners
+      next1Btn.addEventListener("click", () => {
+        if (validateStep1()) {
+          showStep(2);
+        } else {
+          alert("Please fill all fields in Step 1");
+        }
+      });
+
+      back2Btn.addEventListener("click", () => {
+        showStep(1);
+      });
+
+      next2Btn.addEventListener("click", () => {
+        if (validateStep2()) {
+          fillConfirmation();
+          showStep(3);
+        } else {
+          alert("Please fill all fields in Step 2 correctly");
+        }
+      });
+
+      back3Btn.addEventListener("click", () => {
+        showStep(2);
+      });
+
+      function redirectToLogin() {
+        step1Form.reset();
+        step2Form.reset();
+        showStep(1);
+        switchToLogin();
+      }
+
+      submitBtn.addEventListener("click", () => {
+        // Show success modal
+        const successModal = document.getElementById("signupSuccessModal");
+        const closeSuccess = document.getElementById("closeSuccess");
+
+        successModal.style.display = "block";
+
+        // Optional: allow user to manually close modal
+        closeSuccess.addEventListener("click", () => {
+          successModal.style.display = "none";
+          redirectToLogin();
+        });
+
+        // Auto close after 2.5 seconds and go to login
+        setTimeout(() => {
+          successModal.style.display = "none";
+          redirectToLogin();
+        }, 2500);
+      });
+
+      // Prevent login form submit default reload
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Logged in!");
+      });
+
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // perform any validation here, then:
+        window.location.href = "health.html";
+      });
+    </script>
+  </body>
 </html>
