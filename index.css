@@ -392,13 +392,9 @@ button:disabled {
 
   .stepper::before,
   .stepper::after {
-    left: 30%;
-    width: 40%;
+    display: none;
   }
 
-  .stepper::after {
-    width: calc(var(--progress) * 40%);
-  }
 }
 
 /* Modal styles */
