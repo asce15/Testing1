@@ -97,7 +97,6 @@ body {
 
 .login-box .terms label {
   margin: 0; /* remove any margin */
-  white-space: nowrap; /* prevent label text from wrapping */
 }
 
 .login-box .terms input {
