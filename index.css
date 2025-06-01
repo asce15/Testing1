@@ -93,7 +93,6 @@ body {
   margin-top: 30px;
   margin-bottom: 10px;
   flex-wrap: nowrap; /* prevent wrapping */
-  white-space: nowrap; /* prevent text from wrapping */
 }
 
 .login-box .terms label {
