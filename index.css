@@ -6,10 +6,10 @@
   box-sizing: border-box;
 }
 
-body { 
+body {
   background-image: url("bg1.jpg");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -85,30 +85,31 @@ body {
   border-radius: 5px;
 }
 
-.login-box .terms {
+.terms {
   display: flex;
   align-items: center;
-  gap: 5px; /* space between checkbox and label */
-  font-size: 14px;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  flex-wrap: nowrap; /* prevent wrapping */
+  justify-content: flex-start; /* aligns items to the left */
+  gap: 8px; /* spacing between checkbox and label */
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  text-align: left; 
 }
 
-.login-box .terms label {
-  margin: 0; /* remove any margin */
+.terms label {
+  margin: 0; 
+
 }
 
-.login-box .terms input {
+.terms input {
   margin-right: 8px;
 }
 
-.login-box .terms a {
+.terms a {
   color: #a4040a;
   text-decoration: none;
 }
 
-.login-box .terms a:hover {
+.terms a:hover {
   text-decoration: underline;
 }
 
