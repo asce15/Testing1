@@ -383,8 +383,8 @@ button:disabled {
     gap: 15px;
   }
 
-  .login-box {
-    width: 90%;
+ .login-box.login-mode {
+    width: 80%;
     max-width: 380px;
     margin: 20px auto;
     overflow-y: auto;
