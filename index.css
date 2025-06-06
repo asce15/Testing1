@@ -6,7 +6,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   overflow: hidden;
   height: 100%;
 }
@@ -98,26 +99,24 @@ body {
 }
 
 .terms-container label {
-   margin: 0;
+  margin: 0;
   padding: 0;
-   white-space: nowrap;
+  white-space: nowrap;
 }
 .terms-container input[type="checkbox"] {
   margin: 0;
   padding: 0;
-  width: 16px;  /* standard size */
+  width: 16px; /* standard size */
   height: 16px;
-  vertical-align: middle; 
+  vertical-align: middle;
 }
-.terms-container a{
-   color: #a4040a;
-   text-decoration: none;
-
+.terms-container a {
+  color: #a4040a;
+  text-decoration: none;
 }
 .terms-container a:hover {
-   color: #800000;
-   text-decoration: underline;
-
+  color: #800000;
+  text-decoration: underline;
 }
 
 .login-box #login-submit {
@@ -384,10 +383,11 @@ button:disabled {
     gap: 15px;
   }
 
-  .login-box{
-    max-height: 80vh;
-    overflow-y: auto;
+  .login-box {
+    width: 90%;
+    max-width: 380px;
     margin: 20px auto;
+    overflow-y: auto;
   }
 
   .signup-box {
@@ -400,7 +400,6 @@ button:disabled {
   .stepper::after {
     display: none;
   }
-
 }
 
 /* Modal styles */
