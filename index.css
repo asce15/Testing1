@@ -384,8 +384,7 @@ button:disabled {
   }
 
  .login-box.login-mode {
-    width: 80%;
-    max-width: 380px;
+    width: 85%;
     margin: 20px auto;
     overflow-y: auto;
   }
@@ -395,6 +394,10 @@ button:disabled {
     overflow-y: auto;
     margin: 20px auto;
   }
+
+  .terms-container label {
+    font-size: 13px;
+}
 
   .stepper::before,
   .stepper::after {
