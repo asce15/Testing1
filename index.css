@@ -384,8 +384,14 @@ button:disabled {
     gap: 15px;
   }
 
+  .login-box{
+    max-height: 80vh;
+    overflow-y: auto;
+    margin: 20px auto;
+  }
+
   .signup-box {
-    max-height: 90vh;
+    max-height: 80vh;
     overflow-y: auto;
     margin: 20px auto;
   }
