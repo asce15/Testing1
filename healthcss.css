@@ -8,7 +8,7 @@
 
 body {
   color: white;
-  font-family: "Poppins", sans-serif;
+  font-family: "Trebuchet MS", sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -18,7 +18,7 @@ header a {
 
 header {
   padding: 0 20px;
-  background-color: #a4040a;
+  background: linear-gradient(90deg, #6a7337, #a8c66c);
   height: 60px;
   display: flex;
   justify-content: space-between;
@@ -26,15 +26,15 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999; /* ensures it stays on top */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
 }
 
 #brand {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
   display: flex;
   align-items: center;
-  gap: 5px;
 }
 
 #brand a {
@@ -66,6 +66,8 @@ header ul a {
 header ul li {
   padding: 15px;
   margin-left: 10px;
+  font-family: "Verdana";
+  font-size: 15px;
 }
 
 header ul li:hover {
@@ -74,7 +76,8 @@ header ul li:hover {
 }
 
 .nav-list li:hover {
-  background-color: #800000;
+  background-color: #71873f;
+  color: white;
 }
 
 #hamburger-icon {
@@ -184,7 +187,8 @@ header ul li:hover {
 }
 
 .text-container h2 {
-  font-size: 80px;
+  font-family: "Verdana";
+  font-size: 75px;
   margin-bottom: 1rem;
 }
 
@@ -215,7 +219,7 @@ img[alt="dividerline"] {
 
 .logo-row img:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 100px #800000, 0 0 60px #800000, 0 0 20px #800000;
+  box-shadow: 0 0 100px #4b5320, 0 0 60px #4b5320, 0 0 20px #4b5320;
   border-radius: 50%;
 }
 
@@ -258,7 +262,7 @@ img[alt="dividerline"] {
 
 .single-table {
   margin-bottom: 20px; /* gap between tables */
-  border: 1px solid #800000;
+  border: 1px solid #4b5320;
   border-radius: 8px;
   overflow: hidden; /* for rounded corners on table */
 }
@@ -271,7 +275,7 @@ img[alt="dividerline"] {
   background-color: #fff;
   padding: 20px;
   border-radius: 12px;
-  border: 2px solid #800000;
+  border: 2px solid #4b5320;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   max-width: 400px;
   width: 100%;
@@ -302,7 +306,7 @@ img[alt="dividerline"] {
 }
 
 .info-table th {
-  background-color: #a4040a;
+  background-color: #6a7337;
   color: white;
 }
 
@@ -333,7 +337,7 @@ img[alt="dividerline"] {
   max-width: 800px;
   background-color: #fff;
   color: #333;
-  border-left: 6px solid #a4040a;
+  border-left: 6px solid #6a7337;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -370,7 +374,7 @@ img[alt="dividerline"] {
 .button-link {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #a4040a;
+  background-color: #6a7337;
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -378,7 +382,7 @@ img[alt="dividerline"] {
 }
 
 .button-link:hover {
-  background-color: #800000;
+  background-color: #4b5320;
   transform: scale(1.02);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
@@ -413,7 +417,7 @@ img[alt="dividerline"] {
 .popup-content h3 {
   font-size: 24px;
   font-weight: 700;
-  color: #a4040a; /* optional: change title color */
+  color: #6a7337; /* optional: change title color */
 }
 .popup-content #popupDate {
   font-size: 16px;
@@ -443,15 +447,14 @@ img[alt="dividerline"] {
   top: 12px;
   right: 20px;
   font-size: 28px;
-  color: #a4040a;
+  color: #6a7337;
   cursor: pointer;
   font-weight: bold;
   transition: transform 0.2s ease;
 }
 
-.close-btn:hover{
+.close-btn:hover {
   transform: scale(1.3);
-
 }
 
 @media only screen and (max-width: 1360px) {
@@ -492,9 +495,9 @@ img[alt="dividerline"] {
   .footer-logo-column {
     max-width: 50px;
   }
- .footer-column.quick-links {
-  margin-left: 60px;
-}
+  .footer-column.quick-links {
+    margin-left: 60px;
+  }
 }
 
 @media only screen and (max-width: 1100px) {
@@ -541,8 +544,21 @@ img[alt="dividerline"] {
 }
 
 @media only screen and (max-width: 700px) {
+  #brand {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  #brand a {
+    margin-left: 0;
+    text-align: left;
+  }
   .brand-text::after {
     content: "Health Information Hub";
+  }
+
+  #brand img.logo {
+    display: none;
   }
 
   img[alt="dividerline"] {
@@ -598,13 +614,12 @@ img[alt="dividerline"] {
 }
 
 footer {
-  background-color: #a4040a;
+  background: linear-gradient(135deg, #6a7337, #a8c66c);
   color: white;
   padding: 40px 20px 20px;
   text-align: center;
   position: relative;
   z-index: 5;
-  font-family: "Poppins", sans-serif;
 }
 
 .footer-container {
@@ -633,7 +648,6 @@ footer {
   flex: 1 1 250px;
   text-align: left;
 }
-
 
 .footer-column h4 {
   font-size: 18px;
