@@ -181,6 +181,7 @@ header ul li:hover {
   padding: 40px;
   margin-top: 40px;
   z-index: 1;
+  overflow-y: auto;
 }
 
 /* Dark overlay over background image */
@@ -460,5 +461,9 @@ button {
 
   #brand img.logo {
     display: none;
+  }
+
+  .background-image {
+    min-height: 100dvh; /* "dynamic" vh fixes keyboard resize */
   }
 }
