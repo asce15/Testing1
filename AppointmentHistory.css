@@ -370,11 +370,9 @@ tbody td {
   html,
   body {
     overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow-y: auto; /* allow scroll on mobile */
+    height: auto;
   }
 
-  .background-image {
-    min-height: 100dvh; /* "dynamic" vh fixes keyboard resize */
-  }
+
 }
