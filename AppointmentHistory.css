@@ -196,8 +196,7 @@ header ul li:hover {
 
 .list-container {
   background-color: rgba(255, 255, 255, 0.95);
-  width: 100%;
-  max-width: 1000px;
+  width: 50%;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(75, 83, 32, 0.796),
@@ -297,6 +296,11 @@ tbody td {
   #hamburger-icon {
     display: block;
   }
+
+  
+.list-container {
+  width: 100%;
+}
 }
 
 /* Responsive */
@@ -318,6 +322,10 @@ tbody td {
     display: none;
   }
 
+  .list-container {
+  width: 115%;
+}
+
   nav ul {
     display: none;
   }
@@ -333,7 +341,7 @@ tbody td {
 
   #prevPage,
   #nextPage {
-    width: 60px; /* fixed smaller width */
+    width: 65px; /* fixed smaller width */
     height: 35px;
     padding: 0;
     font-size: 18px;
@@ -356,11 +364,11 @@ tbody td {
   }
 
   #prevPage::after {
-    content: "<<<";
+    content: "<<";
   }
 
   #nextPage::after {
-    content: ">>>";
+    content: ">>";
   }
 
   #pageNumber {
