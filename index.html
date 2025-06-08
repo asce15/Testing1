@@ -39,38 +39,40 @@
         <div class="circle active" id="step-1-circle">1</div>
         <div class="circle" id="step-2-circle">2</div>
         <div class="circle" id="step-3-circle">3</div>
+        <div class="circle" id="step-4-circle">4</div>
       </div>
 
       <form id="step-1-form">
         <div class="two-column">
-          <div>
-            <div class="form-group">
-              <label for="name" class="required">Full Name</label>
-              <input type="text" id="name" placeholder="Full Name" required />
-            </div>
-            <div class="form-group">
-              <label for="age" class="required">Age</label>
-              <input type="number" id="age" placeholder="Age" required />
-            </div>
-            <div class="form-group">
-              <label for="birthday" class="required">Birthday</label>
-              <input type="date" id="birthday" required />
-            </div>
+          <div class="form-group">
+            <label for="name" class="required">Full Name</label>
+            <input type="text" id="name" placeholder="Full Name" required/>
           </div>
-          <div>
-            <div class="form-group">
-              <label for="address" class="required">Address</label>
-              <input type="text" id="address" placeholder="Address" required />
-            </div>
-            <div class="form-group" class="required">
-              <label for="contact" class="required">Contact Number</label>
-              <input
-                type="tel"
-                id="contact"
-                placeholder="Contact Number"
-                required
-              />
-            </div>
+          <div class="form-group">
+            <label for="age" class="required">Age</label>
+            <input type="number" id="age" placeholder="Age" required />
+          </div>
+          <div class="form-group">
+            <label for="birthday" class="required">Birthday</label>
+            <input type="date" id="birthday" required />
+          </div>
+          <div class="form-group">
+            <label for="sex" class="required">Sex</label>
+            <select id="sex" required class="custom-select">
+              <option value="">Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="civil-status" class="required">Civil Status</label>
+            <select id="civil-status" class="custom-select" required>
+              <option value="">Select</option>
+              <option value="Single">Single</option>
+              <option value="Married">Married</option>
+              <option value="Widowed">Widowed</option>
+              <option value="Separated">Separated</option>
+            </select>
           </div>
         </div>
         <div class="button-group right-button">
@@ -78,7 +80,32 @@
         </div>
       </form>
 
-      <form id="step-2-form" style="display: none">
+      <form id="step-2-form">
+        <div class="two-column">
+          <div class="form-group">
+            <label for="nationality" class="required">Nationality</label>
+            <input type="text" id="nationality" placeholder="e.g. Filipino" required />
+          </div>
+          <div class="form-group">
+            <label for="religion" class="required">Religion</label>
+            <input type="text" id="religion" placeholder="e.g. Christian" required />
+          </div>
+          <div class="form-group">
+            <label for="address" class="required">Address</label>
+            <input type="text" id="address" placeholder="Home Address" required />
+          </div>
+          <div class="form-group">
+            <label for="contact" class="required">Contact Number</label>
+            <input type="tel" id="contact" placeholder="Contact Number" required />
+          </div>
+        </div>
+        <div class="button-group">
+          <button type="button" id="back-2" class="back-button">Back</button>
+          <button type="button" id="next-2">Next</button>
+        </div>
+      </form>
+
+      <form id="step-3-form" style="display: none">
         <div class="two-column">
           <div>
             <div class="form-group">
@@ -119,17 +146,26 @@
           </div>
         </div>
         <div class="button-group">
-          <button type="button" id="back-2">Back</button>
-          <button type="button" id="next-2">Next</button>
+          <button type="button" id="back-3" class="back-button">Back</button>
+          <button type="button" id="next-3">Next</button>
         </div>
       </form>
 
-      <div id="step-3" style="display: none">
+      <div id="step-4" style="display: none">
         <div class="confirmation card">
           <h3>Review your information</h3>
           <p><strong>Full Name:</strong> <span id="confirm-name"></span></p>
           <p><strong>Age:</strong> <span id="confirm-age"></span></p>
           <p><strong>Birthday:</strong> <span id="confirm-birthday"></span></p>
+          <p><strong>Sex:</strong> <span id="confirm-sex"></span></p>
+          <p>
+            <strong>Civil Status:</strong>
+            <span id="confirm-civil-status"></span>
+          </p>
+          <p>
+            <strong>Nationality:</strong> <span id="confirm-nationality"></span>
+          </p>
+          <p><strong>Religion:</strong> <span id="confirm-religion"></span></p>
           <p><strong>Address:</strong> <span id="confirm-address"></span></p>
           <p>
             <strong>Contact Number:</strong> <span id="confirm-contact"></span>
@@ -138,7 +174,7 @@
           <p><strong>Username:</strong> <span id="confirm-username"></span></p>
         </div>
         <div class="button-group" style="margin-top: 25px">
-          <button type="button" id="back-3">Back</button>
+          <button type="button" id="back-4" class="back-button">Back</button>
           <button type="button" id="submit">Submit</button>
         </div>
       </div>
@@ -210,101 +246,81 @@
       const openTermsBtn = document.getElementById("openTerms");
       const closeTermsBtn = document.getElementById("closeTerms");
 
-      // Open modal when clicking terms link
       openTermsBtn.addEventListener("click", function (event) {
         event.preventDefault();
         termsModal.style.display = "block";
       });
 
-      // Close modal when clicking close button
       closeTermsBtn.addEventListener("click", function () {
         termsModal.style.display = "none";
       });
 
-      // Close modal if clicking outside modal-content
       window.addEventListener("click", function (event) {
         if (event.target === termsModal) {
           termsModal.style.display = "none";
         }
       });
 
-      // Disable login button unless terms checked
       const loginSubmit = document.getElementById("login-submit");
       const termsCheckbox = document.getElementById("termsCheckbox");
+      loginSubmit.disabled = true;
 
       termsCheckbox.addEventListener("change", function () {
         loginSubmit.disabled = !this.checked;
       });
 
-      // Initially disable login button
-      loginSubmit.disabled = true;
-      // Elements
       const loginBox = document.querySelector(".login-box.login-mode");
       const signupContainer = document.querySelector(".signup-box");
       const loginForm = document.getElementById("login-form");
+
       const step1Form = document.getElementById("step-1-form");
       const step2Form = document.getElementById("step-2-form");
-      const step3Div = document.getElementById("step-3");
+      const step3Form = document.getElementById("step-3-form");
+      const step4Div = document.getElementById("step-4");
 
       const step1Circle = document.getElementById("step-1-circle");
       const step2Circle = document.getElementById("step-2-circle");
       const step3Circle = document.getElementById("step-3-circle");
+      const step4Circle = document.getElementById("step-4-circle");
 
       const next1Btn = document.getElementById("next-1");
-      const back2Btn = document.getElementById("back-2");
       const next2Btn = document.getElementById("next-2");
+      const next3Btn = document.getElementById("next-3");
+      const back2Btn = document.getElementById("back-2");
       const back3Btn = document.getElementById("back-3");
+      const back4Btn = document.getElementById("back-4");
       const submitBtn = document.getElementById("submit");
 
       const signupLink = document.getElementById("link-to-signup");
       const backToLoginLink = document.getElementById("link-to-login");
 
-      // Switch to signup view
-      function switchToSignup(event) {
-        event.preventDefault();
+      signupLink.addEventListener("click", (e) => {
+        e.preventDefault();
         loginBox.style.display = "none";
         signupContainer.style.display = "block";
         document.getElementById("branding").style.display = "none";
         showStep(1);
-      }
+      });
 
-      // Switch to login view
-      function switchToLogin(event) {
-        if (event) event.preventDefault();
+      backToLoginLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        loginBox.style.display = "block";
         signupContainer.style.display = "none";
         document.getElementById("branding").style.display = "block";
-        loginBox.style.display = "block";
-      }
-
-      signupLink.addEventListener("click", switchToSignup);
-      backToLoginLink.addEventListener("click", switchToLogin);
-
-      // Update circles active state
-      function setActiveStep(step) {
-        step1Circle.classList.remove("active");
-        step2Circle.classList.remove("active");
-        step3Circle.classList.remove("active");
-
-        if (step === 1) step1Circle.classList.add("active");
-        else if (step === 2) step2Circle.classList.add("active");
-        else if (step === 3) step3Circle.classList.add("active");
-      }
-
+      });
       const stepperEl = document.querySelector(".stepper");
       const totalSteps = 3;
 
-      // Show only relevant step form
       function showStep(step) {
         step1Form.style.display = step === 1 ? "block" : "none";
         step2Form.style.display = step === 2 ? "block" : "none";
-        step3Div.style.display = step === 3 ? "block" : "none";
+        step3Form.style.display = step === 3 ? "block" : "none";
+        step4Div.style.display = step === 4 ? "block" : "none";
 
-        // 2) light up circles up to current step
-        [step1Circle, step2Circle, step3Circle].forEach((c, i) => {
+        [step1Circle, step2Circle, step3Circle, step4Circle].forEach((c, i) => {
           c.classList.toggle("active", i < step);
         });
 
-        // 3) compute fill percentage (0%, 50%, 100%)
         let fraction;
 
         // example custom mapping:
@@ -314,22 +330,31 @@
         if (step === 1) fraction = 0;
         else if (step === 2) fraction = 0.5;
         else if (step === 3) fraction = 1;
+        else if (step === 4) fraction = 1.5;
 
         stepperEl.style.setProperty("--progress", fraction);
       }
 
-      // Validate Step 1 inputs
       function validateStep1() {
-        const name = document.getElementById("name").value.trim();
-        const age = document.getElementById("age").value.trim();
-        const birthday = document.getElementById("birthday").value.trim();
-        const address = document.getElementById("address").value.trim();
-        const contact = document.getElementById("contact").value.trim();
-        return name && age && birthday && address && contact;
+        return (
+          document.getElementById("name").value.trim() &&
+          document.getElementById("age").value.trim() &&
+          document.getElementById("birthday").value.trim() &&
+          document.getElementById("sex").value &&
+          document.getElementById("civil-status").value
+        );
       }
 
-      // Validate Step 2 inputs
       function validateStep2() {
+        return (
+          document.getElementById("nationality").value.trim() &&
+          document.getElementById("religion").value.trim() &&
+          document.getElementById("address").value.trim() &&
+          document.getElementById("contact").value.trim()
+        );
+      }
+
+      function validateStep3() {
         const username = document.getElementById("username").value.trim();
         const password = document.getElementById("password").value;
         const confirmPassword =
@@ -342,7 +367,6 @@
         return true;
       }
 
-      // Fill confirmation step
       function fillConfirmation() {
         document.getElementById("confirm-name").textContent =
           document.getElementById("name").value;
@@ -350,6 +374,14 @@
           document.getElementById("age").value;
         document.getElementById("confirm-birthday").textContent =
           document.getElementById("birthday").value;
+        document.getElementById("confirm-sex").textContent =
+          document.getElementById("sex").value;
+        document.getElementById("confirm-civil-status").textContent =
+          document.getElementById("civil-status").value;
+        document.getElementById("confirm-nationality").textContent =
+          document.getElementById("nationality").value;
+        document.getElementById("confirm-religion").textContent =
+          document.getElementById("religion").value;
         document.getElementById("confirm-address").textContent =
           document.getElementById("address").value;
         document.getElementById("confirm-contact").textContent =
@@ -362,69 +394,71 @@
           document.getElementById("username").value;
       }
 
-      // Navigation button event listeners
       next1Btn.addEventListener("click", () => {
-        if (validateStep1()) {
-          showStep(2);
-        } else {
-          alert("Please fill all fields in Step 1");
-        }
-      });
-
-      back2Btn.addEventListener("click", () => {
-        showStep(1);
+        if (validateStep1()) showStep(2);
+        else alert("Please complete all fields in Step 1");
       });
 
       next2Btn.addEventListener("click", () => {
-        if (validateStep2()) {
-          fillConfirmation();
-          showStep(3);
-        } else {
-          alert("Please fill all fields in Step 2 correctly");
+        const currentStep = step2Form.style.display === "block" ? 2 : 3;
+        if (currentStep === 2) {
+          if (validateStep2()) showStep(3);
+          else alert("Please complete all fields in Step 2");
+        } else if (currentStep === 3) {
+          if (validateStep3()) {
+            fillConfirmation();
+            showStep(4);
+          } else {
+            alert("Please complete all fields in Step 3 correctly");
+          }
         }
       });
 
-      back3Btn.addEventListener("click", () => {
-        showStep(2);
+      next3Btn.addEventListener("click", () => {
+        if (validateStep3()) {
+          fillConfirmation();
+          showStep(4);
+        } else {
+          alert("Please complete all fields in Step 3 correctly");
+        }
       });
+
+      back2Btn.addEventListener("click", () => showStep(1));
+      back3Btn.addEventListener("click", () => showStep(2));
+      back4Btn.addEventListener("click", () => showStep(3));
 
       function redirectToLogin() {
         step1Form.reset();
         step2Form.reset();
+        step3Form.reset();
         showStep(1);
-        switchToLogin();
+        loginBox.style.display = "block";
+        signupContainer.style.display = "none";
+        document.getElementById("branding").style.display = "block";
       }
 
       submitBtn.addEventListener("click", () => {
-        // Show success modal
         const successModal = document.getElementById("signupSuccessModal");
         const closeSuccess = document.getElementById("closeSuccess");
 
         successModal.style.display = "block";
-
-        // Optional: allow user to manually close modal
         closeSuccess.addEventListener("click", () => {
           successModal.style.display = "none";
           redirectToLogin();
         });
 
-        // Auto close after 2.5 seconds and go to login
         setTimeout(() => {
           successModal.style.display = "none";
           redirectToLogin();
         }, 2500);
       });
 
-      // Prevent login form submit default reload
-      loginForm.addEventListener("submit", (e) => {
+      loginForm.addEventListener("submit", function (e) {
         e.preventDefault();
-        alert("Logged in!");
-      });
-
-      loginForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        // perform any validation here, then:
+        if (!termsCheckbox.checked) {
+          alert("You must agree to the Terms and Conditions.");
+          return;
+        }
         window.location.href = "health.html";
       });
     </script>
