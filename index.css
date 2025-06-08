@@ -443,10 +443,6 @@ button:disabled {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
-
-  .background-image {
-    min-height: 100dvh; /* "dynamic" vh fixes keyboard resize */
-  }
 }
 
 /* Modal styles */
