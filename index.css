@@ -437,12 +437,6 @@ button:disabled {
     display: none;
   }
 
-  html,
-  body {
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
 }
 
 /* Modal styles */
